@@ -21,12 +21,15 @@ public class CommonDataSource {
                 .build();
     }
 
-    public DataSource getHirakiDataSource(){
-        HikariConfig configuration = null;
-        configuration.setJdbcUrl("jdbc:postgresql://199.30.30.57:5432/postgres");
+    public static DataSource getHikariDataSource(){
+        HikariConfig configuration = new HikariConfig();
+        configuration.setJdbcUrl("jdbc:postgresql://localhost:5432/BrowserMonitorDB");
         configuration.setDriverClassName("org.postgresql.Driver");
         configuration.setUsername("postgres");
-        configuration.setPassword("s3training");
+        configuration.setPassword("quanpro99");
+        configuration.setRegisterMbeans(true);
+        configuration.setAllowPoolSuspension(true);
+        configuration.setMinimumIdle(2);
         configuration.setMaximumPoolSize(2);
         try (HikariDataSource hikariDataSource = new HikariDataSource(configuration)) {
             return hikariDataSource;
