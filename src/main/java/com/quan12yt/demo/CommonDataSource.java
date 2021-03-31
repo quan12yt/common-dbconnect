@@ -18,6 +18,7 @@ public class CommonDataSource {
         config.setDriverClassName("org.postgresql.Driver");
         config.setLeakDetectionThreshold(300000);
         config.setConnectionTimeout(300000);
+        config.setPoolName("Network-packet-pool");
         return new HikariDataSource(config);
     }
 
