@@ -6,8 +6,6 @@ import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.sql.DataSource;
-
 public class CommonDataSource {
 
     private final static Logger logger = LoggerFactory.getLogger(CommonDataSource.class);
@@ -18,7 +16,7 @@ public class CommonDataSource {
         config.setUsername("postgres");
         config.setPassword("s3training");
         config.setMinimumIdle(1);
-        config.setMaximumPoolSize(2);
+        config.setMaximumPoolSize(200);
         config.setDriverClassName("org.postgresql.Driver");
         config.setLeakDetectionThreshold(300000);
         config.setConnectionTimeout(300000);
